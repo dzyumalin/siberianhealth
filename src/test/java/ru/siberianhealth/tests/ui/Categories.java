@@ -9,6 +9,7 @@ import ru.siberianhealth.pages.MainPage;
 import ru.siberianhealth.tests.TestBase;
 
 import static com.codeborne.selenide.Selenide.open;
+import static io.qameta.allure.Allure.step;
 import static ru.siberianhealth.tests.TestData.OPEN_URL;
 
 @Layer("web")
@@ -21,22 +22,31 @@ public class Categories extends TestBase {
     @Test
     @Tag("web")
     void checkCategoriesInMenu() {
-        open(OPEN_URL);
-        mainPage.setCookieUsageAgreement();
-        mainPage.chooseDelivery();
-        mainPage.setBurgerMenu();
-        mainPage.checkCategoriesInMenu();
+            step("Open " + OPEN_URL, () -> {
+                    open(OPEN_URL);
+            step("Set cookie agreement and choose delivery", () ->
+                    mainPage.setCookieUsageAgreement());
+                    mainPage.setDelivery();
+            step("Click on menu and check categories", () ->
+                    mainPage.setBurgerMenu());
+                    mainPage.checkCategoriesInMenu();
+        });
     }
 
     @Test
     @Tag("web")
     void checkHealthAndSubCategories() {
-        open(OPEN_URL);
-        mainPage.setCookieUsageAgreement();
-        mainPage.chooseDelivery();
-        mainPage.setBurgerMenu();
-        mainPage.setCategoryInMenu();
-        mainPage.checkSubCategoriesInMenu();
+            step("Open " + OPEN_URL, () -> {
+                    open(OPEN_URL);
+            step("Set cookie agreement and choose delivery", () ->
+                    mainPage.setCookieUsageAgreement());
+                    mainPage.setDelivery();
+            step("Click on menu and subcategories", () ->
+                    mainPage.setBurgerMenu());
+                    mainPage.setCategoryInMenu();
+            step("Check subcategories", () ->
+                    mainPage.checkSubCategoriesInMenu());
+        });
     }
 
 }

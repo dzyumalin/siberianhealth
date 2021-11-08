@@ -26,7 +26,7 @@ public class MainPage {
         new AccessCookies().cookieUsageAgreement();
     }
 
-    public void chooseDelivery() {
+    public void setDelivery() {
         new AccessCookies().chooseDelivery();
     }
 
