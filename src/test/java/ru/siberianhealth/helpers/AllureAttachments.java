@@ -36,6 +36,5 @@ public class AllureAttachments {
         addScreenshotAs("Last screenshot");
         addPageSource();
         closeWebDriver();
-        attachVideo(sessionId, Project.deviceConfig.selenoidVideoStorage() + sessionId + ".mp4");
     }
 }

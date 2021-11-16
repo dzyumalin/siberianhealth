@@ -7,9 +7,7 @@ import ru.siberianhealth.config.Project;
 public class WebDriver {
 
     public static void configure() {
-        Configuration.browserVersion = Project.deviceConfig.browserVersion();
         Configuration.browser = Project.deviceConfig.browser();
-        Configuration.browserSize = Project.deviceConfig.browserSize();
         System.setProperty("chromeoptions.mobileEmulation", "deviceName=Nexus 5");
 
         DesiredCapabilities capabilities = new DesiredCapabilities();

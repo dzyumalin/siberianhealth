@@ -12,7 +12,9 @@ public class MainPage {
     private SelenideElement burgerMenu = $("#mobiburger-menu"),
                             menu = $$(".navbar_mobile__menu").findBy(visible),
                             categoryInMenu = $$(".navbar_mobile__menu").findBy(visible),
-                            subCategoryInMenu = $x("//*[@id=\"mobi-menu\"]");
+                            subCategoryInMenu = $x("//*[@id=\"mobi-menu\"]"),
+                            shopcartPrice = $(".navbar_mobile-cart__price"),
+                            shopcartPoints = $(".navbar_mobile-cart__points");
 
     public void setBurgerMenu() {
         burgerMenu.click();
@@ -28,6 +30,11 @@ public class MainPage {
 
     public void setDelivery() {
         new AccessCookies().chooseDelivery();
+    }
+
+    public void checkPriceAndPointsInCart() {
+        shopcartPrice.shouldHave(text("440"));
+        shopcartPoints.shouldHave(text("11"));
     }
 
     public void checkCategoriesInMenu() {
